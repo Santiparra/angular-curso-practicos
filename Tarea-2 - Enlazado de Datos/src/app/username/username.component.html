@@ -1,0 +1,30 @@
+<label>Nombre de Usuario</label>
+<input 
+    type="text"
+    class="form-control"
+    (input)="enabledReset()"
+    [(ngModel)]="username">
+
+<p>{{ username }}</p>
+
+<button
+    [disabled]="!enableReset"
+    (click)="resetUsername()">
+    Reiniciar username
+</button>
+
+//Solucion buena
+
+<label>Nombre de Usuario</label>
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)]="username">
+
+<p>{{ username }}</p>
+
+<button
+    [disabled]="username === ''"
+    (click)="username = ''">
+    Reiniciar username
+</button>
