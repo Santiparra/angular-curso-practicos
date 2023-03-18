@@ -1,0 +1,14 @@
+<button
+(click)="toggleDetalles()">
+    Mostrar detalles
+</button>
+<!-- en el universo el ngstyle iria en una funcion -->
+<div *ngIf="showDetails === true">
+    <p>detalles privados</p>
+    <div 
+    *ngFor="let click of counter"
+    [ngStyle]="{backgroundColor: click >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': click >= 5}"
+    > <p>{{ click }}</p>
+    </div>
+</div>
