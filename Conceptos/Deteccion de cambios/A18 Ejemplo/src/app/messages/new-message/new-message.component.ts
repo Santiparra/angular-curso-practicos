@@ -17,8 +17,8 @@ import { MessagesService } from '../messages.service';
 })
 export class NewMessageComponent {
   constructor(private messagesService: MessagesService) {}
-  
-  enteredText = '';
+
+  enteredText = signal('');
 
   get debugOutput() {
     console.log('[NewMessage] "debugOutput" binding re-evaluated.');
@@ -26,7 +26,7 @@ export class NewMessageComponent {
   }
 
   onSubmit() {
-    this.messagesService.addMessage(this.enteredText);
-    this.enteredText = '';
+    this.messagesService.addMessage(this.enteredText());
+    this.enteredText.set('');
   }
 }
